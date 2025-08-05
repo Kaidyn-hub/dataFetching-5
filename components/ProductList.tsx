@@ -125,6 +125,12 @@ export default function ProductList() {
         numColumns={2}
         columnWrapperStyle={styles.columnWrapper}
       />
+      
+      <View style={styles.reloadButtonContainer}>
+        <TouchableOpacity style={styles.reloadButton} onPress={fetchProducts}>
+          <Text style={styles.reloadButtonText}>Reload Data</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -261,5 +267,26 @@ const styles = StyleSheet.create({
   emptyText: {
     fontSize: 16,
     color: '#666',
+  },
+  reloadButtonContainer: {
+    alignItems: 'center',
+    paddingVertical: 20,
+    paddingBottom: 30,
+  },
+  reloadButton: {
+    backgroundColor: '#4CAF50',
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    borderRadius: 8,
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  reloadButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '600',
   },
 });
