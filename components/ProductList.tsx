@@ -40,7 +40,10 @@ export default function ProductList() {
       setLoading(true);
       setError(null);
       
-      const response = await fetch('https://dummyjson.com/products');
+      const [response] = await Promise.all([
+        fetch('https://dummyjson.com/products'),
+      ]);
+      
       if (!response.ok) {
         throw new Error('Failed to fetch products');
       }
@@ -279,10 +282,6 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderRadius: 8,
     elevation: 3,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
   },
   reloadButtonText: {
     color: '#fff',
